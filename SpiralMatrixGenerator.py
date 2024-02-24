@@ -1,18 +1,16 @@
 
 def spiral_matrix(size: int, clockwise=True, ascending=True) -> list:
     """
-        Generates an n by n matrix (list of lists) with spiraling numbers from 1 to n*n,
-        starting from the center, following either a clockwise or counter-clockwise direction,
-        and in ascending or descending order.
+    Generates an n by n matrix (list of lists) with spiraling numbers from 1 to n*n,
+    starting from the center, following either a clockwise or counter-clockwise direction,
+    and in ascending or descending order.
 
-        Args:
-        - size (int): The size of the square matrix.
-        - clockwise (bool): If True, generates a clockwise spiral. If False, generates a counter-clockwise spiral.
-        - ascending (bool): If True, numbers go in ascending order. If False,numbers go in descending order.
-
-        Returns:
-        - list of lists: The generated spiral matrix.
+    :param size: The size of the square matrix.
+    :param clockwise: If True, generates a clockwise spiral. If False, generates a counter-clockwise spiral.
+    :param ascending: If True, numbers go in ascending order. If False, numbers go in descending order.
+    :return: list of lists: The generated spiral matrix.
     """
+
     if ascending:
         num = size * size
         k = -1
