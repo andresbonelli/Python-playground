@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 
-def calcularDistribucionNormal(numbers: list, xlabel: str, ylabel: str):
+def calcular_distribucion_normal(numbers: list, xlabel: str, ylabel: str):
     """
 
     :param numbers: (list of int) lista de valores numéricos

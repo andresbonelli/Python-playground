@@ -34,7 +34,7 @@ def ordenar_por_apellido(lista_de_nombres: list):
 
 if __name__ == "__main__":
 
-    with open("invitades.txt", encoding="utf-8") as f:
+    with open("../misc/invitades.txt", encoding="utf-8") as f:
         invitades = f.read().splitlines()
 
 
