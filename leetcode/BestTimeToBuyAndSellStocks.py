@@ -6,22 +6,18 @@ You want to maximize your profit by choosing a single day to buy one stock and c
 Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 """
 
-def max_profit(prices: list[float]) -> (float, int):
-    min = prices[0]
+def max_profit(prices: list[float]) -> float:
+    min_price = dip = prices[0]
     profit = 0
-
-
     for i in range(len(prices)):
-        if prices[i] < min:
-            min = prices[i]
+        if prices[i] < dip:
+            dip = prices[i]
 
-        profit = max(profit, (prices[i] - min))
-
-
-    return profit,
+        profit = max(profit, (prices[i] - dip))
+    return profit
 
 
 if __name__ == "__main__":
-    prices = [7,1,5,3,6,4]
+    prices = [1,4,3,8,4,6,4,9,7,10,5,7,1,3,2,8,5,11]
     print(max_profit(prices))
 
