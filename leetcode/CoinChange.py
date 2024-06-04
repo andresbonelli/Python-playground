@@ -19,9 +19,7 @@ class Solution:
 
 
 coins1, amount1 = [1,2,5], 11
-coins2, amount2 = [1]*1000, 4000
-#coins3, amount3 = [1], 0
+coins3, amount3 = [1], 0
 solution = Solution()
 print(solution.coinChange(coins1,amount1))
-print(solution.coinChange(coins2,amount2))
-#print(solution.coinChange(coins3,amount3))
+print(solution.coinChange(coins3,amount3))
