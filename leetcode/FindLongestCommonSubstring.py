@@ -5,38 +5,39 @@ Given two different strings, find the lenght of the longest common substring bet
 
 
 class Solution:
-    def find_longest_common_substring(self, s1: str, s2: str) -> int:
-        m, n = len(s1), len(s2)
-        dp = [[0] * (n + 1) for _ in range(m + 1)]
+    def find_longest_common_substring(self, s: str, t: str) -> int:
+        m, n = len(s), len(t)
+        # init 2D matrix n * m
+        dp = [[0] * (n + 1)] * (m + 1)
+        # init result
         max_length = 0
-
+        # loop through dp matrix once, storing max contiguous characters up to each point.
         for i in range(1, m + 1):
             for j in range(1, n + 1):
-                if s1[i - 1] == s2[j - 1]:
+                if s[i - 1] == t[j - 1]:
                     dp[i][j] = dp[i - 1][j - 1] + 1
                     max_length = max(max_length, dp[i][j])
-        """for row in dp:
-            print(row)"""
+
         return max_length
 
-    def find_longest_common_substring_II(self, s1: str, s2: str) -> int:
+    def find_longest_common_substring_II(self, s: str, t: str) -> int:
         def check(length: int) -> bool:
-            """ Check if there's a common substring of the given length. """
+            # Check if there's a common substring of the given length.
             if length == 0:
                 return True
             hash_set = set()
-            # Hash for s1
-            for i in range(len(s1) - length + 1):
-                substring = s1[i:i + length]
+            # Hash for s
+            for i in range(len(s) - length + 1):
+                substring = s[i:i + length]
                 hash_set.add(hash(substring))
-            # Check against s2
-            for i in range(len(s2) - length + 1):
-                substring = s2[i:i + length]
+            # Check against t
+            for i in range(len(t) - length + 1):
+                substring = t[i:i + length]
                 if hash(substring) in hash_set:
                     return True
             return False
 
-        low, high = 0, min(len(s1), len(s2))
+        low, high = 0, min(len(s), len(t))
         result = 0
 
         while low <= high:
@@ -49,7 +50,8 @@ class Solution:
 
         return result
 
+
 s1 = "I have this book I like to read."
-s2 = "She has this book I like to watch."
+t1 = "She has this book I like to watch."
 solution = Solution()
-print(solution.find_longest_common_substring_II(s1, s2))
+print(solution.find_longest_common_substring(s1, t1))
