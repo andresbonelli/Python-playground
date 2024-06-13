@@ -1,15 +1,21 @@
+from decorators.Decorators import leetcode_test
+"""
+You are given two non-empty linked lists representing two non-negative integers.
+The digits are stored in reverse order, and each of their nodes contains a single digit.
+Add the two numbers and return the sum as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+"""
+
 class ListNode(object):
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
+@leetcode_test
+def addTwoNumbers(l1: ListNode, l2: ListNode) -> ListNode:
 
-def addTwoNumbers(l1, l2):
-    """
-    :type l1: ListNode
-    :type l2: ListNode
-    :rtype: ListNode
-    """
     temp_node = ListNode(0)
     result = temp_node
     carry = 0
@@ -37,6 +43,5 @@ l2 = ListNode(5)
 l2.next = ListNode(6)
 l2.next.next = ListNode(4)
 
-result = addTwoNumbers(l1, l2)
 
-print(result)
+addTwoNumbers(l1, l2)

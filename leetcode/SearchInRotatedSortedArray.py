@@ -1,9 +1,8 @@
-def search(nums, target):
-    """
-    :type nums: List[int]
-    :type target: int
-    :rtype: int
-    """
+from decorators.Decorators import leetcode_test
+from typing import List
+
+@leetcode_test
+def search(nums: List[int], target: int) -> int:
     if len(nums) == 1:
         return 0 if nums[0] == target else -1
 
@@ -30,5 +29,4 @@ def search(nums, target):
 
 nums = [5, 1, 3]
 target = 0
-
-print(search(nums, target))
+search(nums, target)

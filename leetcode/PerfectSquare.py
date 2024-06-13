@@ -1,8 +1,7 @@
-def is_perfect_square(num):
-    """
-    :type num: int
-    :rtype: bool
-    """
+from decorators.Decorators import leetcode_test
+@leetcode_test
+def is_perfect_square(num: int) -> bool:
+
     if num < 1:
         return False
     if num == 1:
@@ -23,6 +22,6 @@ def is_perfect_square(num):
 
     return False
 
-print(is_perfect_square(16))
-print(is_perfect_square(14))
-print(is_perfect_square(1))
+is_perfect_square(16)
+is_perfect_square(14)
+is_perfect_square(1)

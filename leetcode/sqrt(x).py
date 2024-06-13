@@ -1,4 +1,6 @@
-def sqrt(x):
+from decorators.Decorators import leetcode_test
+@leetcode_test
+def sqrt(x: int) -> int:
     if x == 0 or x == 1:
         return x
 
@@ -20,5 +22,5 @@ def sqrt(x):
 
 
 # Example usage:
-print(sqrt(8))  # Output: 2
-print(sqrt(16))  # Output: 4
+sqrt(8)  # Output: 2
+sqrt(16)  # Output: 4

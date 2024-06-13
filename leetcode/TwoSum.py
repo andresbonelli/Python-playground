@@ -1,12 +1,15 @@
-def two_sum(array: list[int], target: int) -> tuple[int, int] | None:
-    """
-     Search for the index of pair of numbers that sum up to a target value using the two-pointer approach.
+from decorators.Decorators import leetcode_test
+from typing import List, Tuple
+"""
+ Search for the index of pair of numbers that sum up to a target value using the two-pointer approach.
 
-    :param array: (list[int]) A list of integers (later sorted in ascending order).
-    :param target: (int) The target sum to find.
-    :return: A tuple containing the indexes of the pair of numbers that sum up to the target value
-             (or None if no such pair exists).
-    """
+:param array: (list[int]) A list of integers (later sorted in ascending order).
+:param target: (int) The target sum to find.
+:return: A tuple containing the indexes of the pair of numbers that sum up to the target value
+         (or None if no such pair exists).
+"""
+@leetcode_test
+def two_sum(array: List[int], target: int) -> Tuple[int, int] | None:
     sorted_arr = sorted(array)
     n = len(sorted_arr)
     left = 0
@@ -23,7 +26,8 @@ def two_sum(array: list[int], target: int) -> tuple[int, int] | None:
             right -= 1
     return None
 
-def two_sum_no_sort(array: list[int], target: int) -> tuple[int, int] | None:
+@leetcode_test
+def two_sum_no_sort(array: List[int], target: int) -> Tuple[int, int] | None:
     n = len(array)
     hash_map = {}
 
@@ -37,13 +41,9 @@ def two_sum_no_sort(array: list[int], target: int) -> tuple[int, int] | None:
     return None
 
 
-if __name__ == '__main__':
-    arr = [2, 7, 11, 15]
-    solution = two_sum_no_sort(arr, 9)
-    print(solution)
-    arr2 = [3, 2, 4]
-    solution2 = two_sum_no_sort(arr2, 6)
-    print(solution2)
-    arr3 = [3, 3]
-    solution3 = two_sum_no_sort(arr3, 6)
-    print(solution3)
+arr = [2, 7, 11, 15]
+arr2 = [3, 2, 4]
+arr3 = [3, 3]
+two_sum_no_sort(arr, 9)
+two_sum_no_sort(arr2, 6)
+two_sum_no_sort(arr3, 6)

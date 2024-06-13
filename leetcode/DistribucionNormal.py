@@ -2,8 +2,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
+from decorators.Decorators import leetcode_test
+from typing import List
 
-def calcular_distribucion_normal(numbers: list, xlabel: str, ylabel: str):
+@leetcode_test
+def calcular_distribucion_normal(numbers: List[int], xlabel: str, ylabel: str):
     """
 
     :param numbers: (list of int) lista de valores numéricos
@@ -39,5 +42,5 @@ if __name__ == "__main__":
               39, 29, 54, 26, 43, 20, 39, 40, 20, 25, 40, 26, 22, 32, 62, 34,
               24, 23, 35, 24, 26, 35, 43, 55, 63, 24, 38, 56, 54, 36, 43]
 
-    calcularDistribucionNormal(edades, xlabel="Edad", ylabel="Densidad")
+    calcular_distribucion_normal(edades, xlabel="Edad", ylabel="Densidad")
 

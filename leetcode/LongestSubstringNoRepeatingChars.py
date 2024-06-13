@@ -1,7 +1,9 @@
+from decorators.Decorators import leetcode_test
+"""
+Given a string s, find the length of the longest substring without repeating characters.
+"""
+@leetcode_test
 def lengthOfLongestSubstring(s: str) -> int:
-    """
-    Given a string s, find the length of the longest substring without repeating characters.
-    """
     if not s or len(s) == 0:
         return 0
     if len(s) == 1:
@@ -25,4 +27,4 @@ def lengthOfLongestSubstring(s: str) -> int:
 
 
 s = "abcabcbb"
-print(lengthOfLongestSubstring(s))
+lengthOfLongestSubstring(s)

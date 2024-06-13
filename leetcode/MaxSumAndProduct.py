@@ -1,8 +1,8 @@
-def maxSubArray(nums):
-    """
-    :type nums: List[int]
-    :rtype: int
-    """
+from decorators.Decorators import leetcode_test
+from typing import List
+
+@leetcode_test
+def maxSubArray(nums: List[int]) -> int:
     curSum = 0
     maxSum = nums[0]
 
@@ -14,11 +14,8 @@ def maxSubArray(nums):
 
     return maxSum
 
-def maxProduct(nums):
-    """
-    :type nums: List[int]
-    :rtype: int
-    """
+@leetcode_test
+def maxProduct(nums: List[int]) -> int:
     if len(nums) == 0:
         return 0
     min_prod = nums[0]
@@ -33,5 +30,5 @@ def maxProduct(nums):
     return result
 
 nums = [0,1]
-
-print(maxProduct(nums))
+maxSubArray(nums)
+maxProduct(nums)
