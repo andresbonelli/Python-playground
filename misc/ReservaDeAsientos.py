@@ -51,11 +51,11 @@ while True:
             print("\n Ingrese fila y asiento")
             fila: str = input("Fila (entre 1 y 10): ")
             asiento: str = input("Asiento (de A a J): ")
-            if not fila or not asiento \
-                    or not fila.isnumeric() \
-                    or int(fila) not in range(1, 11) \
-                    or asiento.lower() not in codigos_de_asiento_posibles:
-                print("[ERROR] - opcion no valida")
+            if not fila or not fila.isnumeric() or int(fila) not in range(1, 11):
+                print("[ERROR] - opción de fila no válida")
+                continue
+            elif not asiento or asiento.lower() not in codigos_de_asiento_posibles:
+                print("[ERROR] - opción de asiento no válida")
                 continue
             elif asientos[int(fila) - 1][codigos_de_asiento_posibles[asiento.lower()] - 1] == "[X]":
                 print(f"El asiento {int(fila)}{asiento.upper()} esta ocupado, por favor elija otro")
