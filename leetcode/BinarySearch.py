@@ -39,9 +39,9 @@ def recursive_binary_search(nums: List[int], target: int, offset=0) -> int:
     return -1
 
 
-nums = [random.randint(0, 100) for num in range(100)]
+nums = [random.randint(0, 100) for _ in range(100)]
 
 nums = list(set(sorted(nums)))
 
 binary_search(nums, 50)
-recursive_binary_search(nums, 50)
+#recursive_binary_search(nums, 50)

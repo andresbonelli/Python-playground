@@ -1,4 +1,5 @@
 from typing import List, Dict
+
 """
 Suponer un sistema de reserva de asientos para un anfiteatro. El teatro cuenta con 10 filas de 10 asientos cada una.
 Se necesita desarrollar un sistema (sin uso de bases de datos, únicamente manejo de datos de forma lógica)
@@ -21,7 +22,7 @@ NO UTILIZAR IGU para este caso. Utilizar ÚNICAMENTE lógica y la salida por con
 
 """
 
-asientos: List[List[str]] = [["[L]"] * 10 for _ in range(10)]
+asientos: List[List[str]] = [["L"] * 10 for _ in range(10)]
 codigos_de_asiento_posibles: Dict = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6, "g": 7, "h": 8, "i": 9, "j": 10}
 
 
@@ -29,10 +30,7 @@ def mostrar_asientos() -> None:
     print("Asientos disponibles:")
     print(" \  A  B  C  D  E  F  G  H  I  J")
     for i, row in enumerate(asientos):
-        if i < 9:
-            print(f"0{i + 1} {''.join(seat for seat in row)}")
-        else:
-            print(f"{i + 1} {''.join(seat for seat in row)}")
+        print(f"{i + 1:02} {''.join(f'[{seat}]' for seat in row)}")
 
 
 print("-------- BIENVENIDO AL SISTEMA DE RESERVAS --------")
@@ -57,10 +55,10 @@ while True:
             elif not asiento or asiento.lower() not in codigos_de_asiento_posibles:
                 print("[ERROR] - opción de asiento no válida")
                 continue
-            elif asientos[int(fila) - 1][codigos_de_asiento_posibles[asiento.lower()] - 1] == "[X]":
+            elif asientos[int(fila) - 1][codigos_de_asiento_posibles[asiento.lower()] - 1] == "X":
                 print(f"El asiento {int(fila)}{asiento.upper()} esta ocupado, por favor elija otro")
                 continue
             else:
-                asientos[int(fila) - 1][codigos_de_asiento_posibles[asiento.lower()] - 1] = "[X]"
+                asientos[int(fila) - 1][codigos_de_asiento_posibles[asiento.lower()] - 1] = "X"
                 print(f"El asiento {int(fila)}{asiento.upper()} fue reservado correctamente")
                 break
