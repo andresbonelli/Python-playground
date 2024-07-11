@@ -14,4 +14,4 @@ I will be scattering pushes here and there of new things I come up with or find 
 Feel free to clone the repository to your local machine at will:
 
 ```bash
-git clone https://github.com/donpipon/Python-playground.git
+git clone https://github.com/andresbonelli/Python-playground.git
