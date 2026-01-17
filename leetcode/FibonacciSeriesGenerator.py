@@ -127,7 +127,7 @@ async def main(n):
     :return: None
     """
     tasks = [
-        # measure_time(recursiveFib, n),
+        measure_time(recursiveFib, n),
         measure_time(memoizationFib, n),
         measure_time(tabulationFib, n),
         measure_time(noMemoFib, n),
@@ -136,5 +136,5 @@ async def main(n):
 
 
 if __name__ == "__main__":
-    n = 40
+    n = 20
     asyncio.run(main(n))

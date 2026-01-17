@@ -1,9 +1,7 @@
-from decorators.Decorators import leetcode_test
+import time, random
 from typing import List
-import random
 
 
-@leetcode_test
 def binary_search(nums: List[int], target: int) -> int:
     if len(nums) == 1:
         return 0 if nums[0] == target else -1
@@ -22,7 +20,6 @@ def binary_search(nums: List[int], target: int) -> int:
     return -1
 
 
-@leetcode_test
 def recursive_binary_search(nums: List[int], target: int, offset=0) -> int:
     if len(nums) == 0:
         return -1
@@ -38,10 +35,20 @@ def recursive_binary_search(nums: List[int], target: int, offset=0) -> int:
         return recursive_binary_search(nums[m + 1:], target, offset + m + 1)
     return -1
 
+def medir_tiempo(funcion, *args):
+ inicio = time.time()
+ resultado = funcion(*args)
+ fin = time.time()
+ return resultado, fin - inicio
 
-nums = [random.randint(0, 100) for _ in range(100)]
-
+LIMIT = 10000
+nums = [random.randint(0, LIMIT) for _ in range(LIMIT)]
 nums = list(set(sorted(nums)))
-
-binary_search(nums, 50)
+TARGET = random.randint(0, LIMIT)
+#binary_search(nums, 50)
 #recursive_binary_search(nums, 50)
+resultado1, tiempo1 = medir_tiempo(recursive_binary_search, nums, TARGET)
+resultado2, tiempo2 = medir_tiempo(binary_search, nums, TARGET)
+
+print(f"Busqueda binaria recursiva: Numero Buscado={TARGET}, Posicion={resultado1 if resultado1 >= 0 else "(no encontraado)"}, Tiempo={tiempo1:.8f} segundos")
+print(f"Busqueda binaria optimizada: Numero Buscado={TARGET}, Posicion={resultado2 if resultado2 >= 0 else "(no encontrado)"}, Tiempo={tiempo2:.8f} segundos")
